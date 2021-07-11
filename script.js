@@ -68,7 +68,7 @@ function addMeal(mealData, random = false) {
     btn.addEventListener("click", () => {
         if (btn.classList.contains("active")) {
             removeMealLS(mealData.idMeal);
-            btn.classList.remove("active");
+            btn.classList.remove("active"); 
         } else {
             addMealLS(mealData.idMeal);
             btn.classList.add("active");
@@ -77,8 +77,10 @@ function addMeal(mealData, random = false) {
         fetchFavMeals();
     });
 
-    meal.addEventListener("click", () => {
-        showMealInfo(mealData);
+    meal.addEventListener("click", (event) => {
+       if(event.target.tagName !== 'I') {
+       showMealInfo(mealData);
+      }        
     });
 
     mealsEl.appendChild(meal);
@@ -140,8 +142,10 @@ function addMealFav(mealData) {
         fetchFavMeals();
     });
 
-    favMeal.addEventListener("click", () => {
-        showMealInfo(mealData);
+    favMeal.addEventListener("click", (event) => {
+       if(event.target.tagName !== 'I'){
+       showMealInfo(mealData);
+       }  
     });
 
     favoriteContainer.appendChild(favMeal);
